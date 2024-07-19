@@ -1,20 +1,12 @@
 package com.mynt.test_isbak.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
+import java.util.*;
 import com.mynt.test_isbak.model.Student;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.junit.jupiter.api.*;
+import org.mockito.*;
 import com.mynt.test_isbak.repository.StudentRepository;
 import com.mynt.test_isbak.service.StudentServiceImpl;
-
-//import static jdk.internal.org.objectweb.asm.util.CheckClassAdapter.verify;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class MockTestStudent {
@@ -31,7 +23,7 @@ public class MockTestStudent {
     }
 
     @Test
-    public void testGetAllStudents() {
+    public void testGetAll() {
         Student student = new Student(1L, "John Doe", "john@example.com");
         when(studentRepository.findAll()).thenReturn(Arrays.asList(student));
 
@@ -41,7 +33,7 @@ public class MockTestStudent {
     }
 
     @Test
-    public void testSaveStudent() {
+    public void testSave() {
         Student student = new Student(2L, "Jane Doe", "jane@example.com");
         when(studentRepository.save(student)).thenReturn(student);
 
@@ -51,7 +43,7 @@ public class MockTestStudent {
     }
 
     @Test
-    public void testDeleteStudent() {
+    public void testDelete() {
         Long studentId = 1L;
         doNothing().when(studentRepository).deleteById(studentId);
 
