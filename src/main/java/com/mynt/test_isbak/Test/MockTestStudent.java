@@ -24,22 +24,22 @@ public class MockTestStudent {
 
     @Test
     public void testGetAll() {
-        Student student = new Student(1L, "John Doe", "john@example.com");
+        Student student = new Student(1L, "Ben Dover", "john@example.com");
         when(studentRepository.findAll()).thenReturn(Arrays.asList(student));
 
         List<Student> students = studentService.getAllStudent();
         assertEquals(1, students.size());
-        assertEquals("John Doe", students.get(0).getName());
+        assertEquals("Ben Dover", students.get(0).getName());
     }
 
     @Test
     public void testSave() {
-        Student student = new Student(2L, "Jane Doe", "jane@example.com");
+        Student student = new Student(2L, "Ben Dover", "jane@example.com");
         when(studentRepository.save(student)).thenReturn(student);
 
         Student createdStudent = studentService.saveStudent(student);
         assertNotNull(createdStudent);
-        assertEquals("Jane Doe", createdStudent.getName());
+        assertEquals("Ben Dover", createdStudent.getName());
     }
 
     @Test
